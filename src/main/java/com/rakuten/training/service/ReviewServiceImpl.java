@@ -36,8 +36,25 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public void deleteById(int id) {
+		Review r=reviewDao.findById(id);
+		if(r==null)
+			throw new IllegalStateException("Review not found");
 		reviewDao.deleteById(id);
 	}
+
+	@Override
+	public void deleteReviewsByProductId(int id) {
+		List<Review> reviews=reviewDao.findByPid(id);
+		
+		reviews.stream().forEach(r->reviewDao.deleteById(r.getId()));
+		
+	}
+
+	@Override
+	public List<Review> findAll() {
+		return reviewDao.findAll();
+	}
+	
 
 	
 

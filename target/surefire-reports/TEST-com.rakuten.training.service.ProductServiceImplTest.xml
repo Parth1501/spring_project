@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.rakuten.training.ProductsAppApplicationTests" time="3.363" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.rakuten.training.service.ProductServiceImplTest" time="0.052" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -51,5 +51,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="contextLoads" classname="com.rakuten.training.ProductsAppApplicationTests" time="0.143"/>
+  <testcase name="findAll_Must_Return_ListofProduct" classname="com.rakuten.training.service.ProductServiceImplTest" time="0.009"/>
+  <testcase name="addNewProduct_Must_Return_NonZeroId_When_Value_GETEQ_10K" classname="com.rakuten.training.service.ProductServiceImplTest" time="0.006"/>
+  <testcase name="removeExisting_Must_Delete_Product_When_Value_LT_100k" classname="com.rakuten.training.service.ProductServiceImplTest" time="0.005"/>
+  <testcase name="removeExisting_Must_Throw_Exception_When_Value_GT_100k" classname="com.rakuten.training.service.ProductServiceImplTest" time="0.001"/>
+  <testcase name="addNewProduct_Must_Throws_IllegalStateException_When_ProductPrice_Mul_ProductQoh" classname="com.rakuten.training.service.ProductServiceImplTest" time="0.001"/>
 </testsuite>

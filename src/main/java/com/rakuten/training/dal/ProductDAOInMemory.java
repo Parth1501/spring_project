@@ -5,13 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 
 import com.rakuten.training.domain.Product;
 
-
-
+@Primary
+@Repository
+@Transactional
 public class ProductDAOInMemory implements ProductDAO{
 	Map<Integer, Product> data=new HashMap<Integer, Product>();
 	int idSeq=0;

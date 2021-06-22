@@ -12,5 +12,8 @@ public interface ReviewService {
 
 	void deleteById(int id);
 	
+	void deleteReviewsByProductId(int id);
+	List<Review> findAll();
+	
 
 }

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +25,6 @@ public class ProductDAOJPAImpl implements ProductDAO {
 
 	@Override
 	public Product save(Product toBeSaved) {
-		// TODO Auto-generated method stub
 		manager.persist(toBeSaved);
 		return toBeSaved;
 	}
@@ -37,17 +37,16 @@ public class ProductDAOJPAImpl implements ProductDAO {
 
 	@Override
 	public Product findById(int id) {
-		// TODO Auto-generated method stub
+		
 		return manager.find(Product.class, id);
 	}
 
 	@Override
 	public void deleteById(int id) {
 		Product p=manager.find(Product.class,id);
-		if(p!=null) {
-			manager.remove(p);
-		}
-		// TODO Auto-generated method stub
+		manager.remove(p);
+		
+		
 		
 	}
 	
@@ -72,4 +71,6 @@ public class ProductDAOJPAImpl implements ProductDAO {
 		q.setParameter("n", price);
 		return q.getResultList();
 	}
+	
+	
 }

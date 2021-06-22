@@ -1,10 +1,16 @@
 package com.rakuten.training.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Product {
@@ -21,14 +27,32 @@ public class Product {
 	
 	@Column(name="product_qoh")
 	int qoh;
+	
+	@Column(name="product_url")
+	String url;
+	
+	@OneToMany(cascade = {CascadeType.REMOVE,CascadeType.PERSIST})
+	@JoinColumn(name="pid")
+	List<Review> reviews=new ArrayList<>();
+	
+	
+	
+	
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
 	public Product() {
 		super();
 	}
-	public Product(String name, double price, int qoh) {
+	public Product(String name, double price, int qoh,String url) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.qoh = qoh;
+		this.url=url;
 	}
 	
 	public int getId() {
@@ -54,6 +78,13 @@ public class Product {
 	}
 	public void setQoh(int qoh) {
 		this.qoh = qoh;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	@Override
 	public String toString() {

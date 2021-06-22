@@ -10,7 +10,7 @@ public interface ProductDAO {
 	public List<Product> findAll();
 	public Product findById(int id);
 	public void deleteById(int id);
-	public default List<Product> findByPriceLessThan(float price) {return new ArrayList<Product>();};
-	public default List<Product> findByNameLike(String name){return new ArrayList<Product>();};
-	public default List<Product> findByName(String name){return new ArrayList<Product>();};
+	public default List<Product> findByPriceLessThan(float price) {return new ArrayList();}
+	public default List<Product> findByNameLike(String name){return new ArrayList();}
+	public default List<Product> findByName(String name){return new ArrayList();}
 }

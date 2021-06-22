@@ -13,12 +13,10 @@ import com.rakuten.training.domain.Review;
 
 @Repository
 @Transactional
-public class ReviewDAOJPAImpl implements ReviewDAO{
-	
-	
-	 @Autowired
-	 EntityManager manager;
-	 
+public class ReviewDAOJPAImpl implements ReviewDAO {
+
+	@Autowired
+	EntityManager manager;
 
 	@Override
 	public Review save(Review toBeSaved) {
@@ -26,23 +24,21 @@ public class ReviewDAOJPAImpl implements ReviewDAO{
 		return toBeSaved;
 	}
 
-
 	@Override
 	public Review findById(int id) {
-		// TODO Auto-generated method stub
-		return manager.find(Review.class,id);
+
+		return manager.find(Review.class, id);
 	}
 
 	@Override
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
-		Review r=manager.find(Review.class,id);
-		if(r!=null) {
+
+		Review r = manager.find(Review.class, id);
+		if (r != null) {
 			manager.remove(r);
 		}
-		
-	}
 
+	}
 
 	@Override
 	public List<Review> findByPid(int productId) {
@@ -57,6 +53,14 @@ public class ReviewDAOJPAImpl implements ReviewDAO{
 		q.setParameter("x", rating);
 		return q.getResultList();
 	}
+
+	@Override
+	public List<Review> findAll() {
+		Query q=manager.createQuery("select r from Review r");
+		return q.getResultList();
+	}
 	
 	
+	
+
 }

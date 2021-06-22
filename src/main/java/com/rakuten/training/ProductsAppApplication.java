@@ -28,7 +28,7 @@ public class ProductsAppApplication {
 		
 //		ReviewDAO r=springContainer.getBean(ReviewDAOJPAImpl.class);
 //		Review r1=readData();
-//		service.addReviewToProduct(r1, 1);
+//		service.addReviewToProduct(r1, 8);
 //		product.createProductServiceUI();
 		
 //		testProductQuries(springContainer);
@@ -39,7 +39,7 @@ public class ProductsAppApplication {
 	
 	private static void testRepository(ApplicationContext springContainer) {
 		ProductRepository repo=springContainer.getBean(ProductRepository.class);
-		repo.save(new Product("test222",100002.78,5));
+		repo.save(new Product("test222",100002.78,5,"someUrl"));
 		repo.findByName("test").stream().forEach(System.out::println);
 	}
 
@@ -63,8 +63,8 @@ public class ProductsAppApplication {
 			String detail=s.nextLine();
 			System.out.print("Enter reviewe rating: ");
 			int rating=Integer.parseInt(s.nextLine());
-			Review r=new Review(name,detail,rating);
-			return r;
+			return new Review(name,detail,rating);
+	
 		}
 	}
 

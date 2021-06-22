@@ -25,8 +25,10 @@ public class ProductUI {
 			double price = Double.parseDouble(s.nextLine());
 			System.out.print("Enter quantity: ");
 			int qoh = Integer.parseInt(s.nextLine());
+			System.out.print("Enter product url: ");
+			String url = s.nextLine();
 
-			Product product = new Product(name, price, qoh);
+			Product product = new Product(name, price, qoh,url);
 			int id = service.addNewProduct(product);
 			System.out.println("New product added with id: " + id);
 		}
