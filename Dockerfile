@@ -1,7 +1,6 @@
 FROM maven:3.6.0-jdk-8-slim AS build
 FROM openjdk:8-jre-slim
 RUN mkdir /usr/my-app
-WORKDIR /usr/my-app
 COPY src /usr/my-app/src
 COPY pom.xml /usr/my-app/pom.xml
 
