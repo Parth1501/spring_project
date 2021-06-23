@@ -4,7 +4,7 @@ RUN mkdir /usr/my-app
 COPY src /usr/my-app/src
 COPY pom.xml /usr/my-app/pom.xml
 
-RUN mvn -f /usr/my-app/pom.xml package
+RUN mvn -f /usr/my-app/pom.xml clean package
 
  
 
