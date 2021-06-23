@@ -1,13 +1,13 @@
 FROM maven:3.6.0-jdk-8-slim AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+
 FROM openjdk:8-jre-slim
-RUN mkdir /usr/my-app
-COPY src /usr/my-app/src
-COPY pom.xml /usr/my-app/pom.xml
 
-RUN mvn -f /usr/my-app/pom.xml clean package
-
+COPY 
  
 
 EXPOSE 8085
-ENTRYPOINT ["java","-jar","/usr/my-app/target/*.jar]
+ENTRYPOINT ["java","-jar","/home/app/target/*.jar]
 
