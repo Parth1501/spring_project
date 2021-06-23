@@ -5,8 +5,6 @@ RUN mvn -f /home/app/pom.xml clean package
 
 FROM openjdk:8-jre-slim
 
-COPY 
- 
 
 EXPOSE 8085
 ENTRYPOINT ["java","-jar","/home/app/target/*.jar]
