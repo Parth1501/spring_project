@@ -13,7 +13,7 @@ RUN mvn -f /home/app/pom.xml clean -DskipTests package
 FROM openjdk:8-jre-slim
 COPY --from=build /home/app/target/*.jar /usr/local/lib/demo.jar
 
-FROM mysql/mysql-server:latest
+
 
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/demo.jar"]
