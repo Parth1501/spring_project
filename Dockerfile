@@ -11,10 +11,6 @@ RUN mvn -f /home/app/pom.xml clean -DskipTests package
 # Package stage
 #
 FROM openjdk:8-jre-slim
-COPY --from=build /home/app/target/*.jar /usr/local/lib/demo.jar
 
-
-
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","/usr/local/lib/demo.jar"]
+ENTRYPOINT ["java","-jar","/home/app/target/*.jar."]
 
